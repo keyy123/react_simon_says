@@ -1,7 +1,6 @@
 name: DevOps-GitHubActions
 on: push
 jobs:
-  # Build Job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -20,21 +19,19 @@ jobs:
         with:
           name: production-files
           path: ./dist
-
-# Deploy Job
-deploy:
-  # Add a dependency to the build job
-  needs: build
-  # specify runner + deployment step
-  runs-on: ubuntu-latest
-  steps:
-    - name: Download artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: production-files
-        path: ./dist
-    - name: Deploy to Github Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.CICD }}
-        publish_dir: ./dist
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+    # specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: production-files
+          path: ./dist
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.CICD }}
+          publish_dir: ./dist
