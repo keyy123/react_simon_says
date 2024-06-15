@@ -1,7 +1,8 @@
 name: ci-cd-pipeline
-on: push
+on: [push, pull_request]
 jobs:
   build-test:
+    name: Jest Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
