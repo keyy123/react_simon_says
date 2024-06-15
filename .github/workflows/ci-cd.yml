@@ -1,8 +1,13 @@
-name: hello-world
+name: ci-cd-pipeline
 on: push
 jobs:
-  sample-job:
+  build-test:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+      - run: npm i
+      - run: npm run build
+      - run: npm run test
