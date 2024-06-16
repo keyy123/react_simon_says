@@ -1,0 +1,7 @@
+.board {
+    background-color: darkslategrey;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 50%;
+}
+
