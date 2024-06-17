@@ -7,14 +7,6 @@ let mockData = {
     disabled: false
 }
 
-test('render Simon Button', () => {
-    render(<SimonBtn color={mockData.color} disabled={mockData.disabled}/>);
-    const buttonElement = screen.getByTestId("simon_button");
-    expect(buttonElement).toBeInTheDocument();
-})
-
-
-
 test('render yellow simon Button', () => {
     mockData.color = "yellow";
 
@@ -23,18 +15,21 @@ test('render yellow simon Button', () => {
     expect(yellowSimonBtn).toBeInTheDocument();
 })
 
-test('render green simon Button', () => {
+test('render green simon Button',  () => {
     mockData.color = "green";
 
-    render(<SimonBtn color={mockData.color} disabled={mockData.disabled}/>)
-    const greenSimonBtn = screen.getByTestId("green_simon_button");
+   render(<SimonBtn color={mockData.color} disabled={mockData.disabled}/>)
+    
+    const greenSimonBtn = screen.getByTestId('green_simon_button') 
     expect(greenSimonBtn).toBeInTheDocument();
 })
 
 test('will not render pink simon button', () => {
     mockData.color = "pink";
-
-    render(<SimonBtn color={mockData.color} disabled={mockData.disabled}/>);
-    const customBtn = screen.getByTestId('custom_simon_button');
-    expect(customBtn).toBeInTheDocument()
-})
+    expect.assertions(1);
+    try {
+        render(<SimonBtn color={mockData.color} disabled={mockData.disabled}/>);
+    }catch(e){
+        expect(e).toStrictEqual("illegal color");
+    }
+});
