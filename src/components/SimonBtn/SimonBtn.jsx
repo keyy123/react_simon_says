@@ -1,6 +1,6 @@
 import styles from "./SimonBtn.module.css"
 
-function SimonBtn({color, disabled}){
+function SimonBtn({color, disabled, onClick}){
     let allowableColors = ["red", "blue", "green", "yellow"];
     let btnClass;
     try {
@@ -24,12 +24,14 @@ function SimonBtn({color, disabled}){
     
 
     return (
-    <button
+    <div
         data-testid={`${color}_simon_button`}
-        className={styles[`${btnClass}`]}
+        className={`${styles[`${btnClass}`]} ${styles.button} `}
+        onClick={onClick}
+        disabled={disabled}
     >
-
-    </button>
+      {}
+    </div>
     )
 
     
