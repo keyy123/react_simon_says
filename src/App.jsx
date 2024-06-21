@@ -1,11 +1,13 @@
 import logo from "./logo.svg";
 import "./App.css";
 import GameBoard from "./components/GameBoard/GameBoard";
+import PowerBtn from "./components/PowerBtn/PowerBtn";
 
 function App() {
   return (
     <div className="App">
       <GameBoard />
+      <PowerBtn />
         {/* <SimonBtn color={"yellow"} disabled={false}/>
         <SimonBtn color={"blue"} disabled={false}/>
         <SimonBtn color={"red"} disabled={false}/>

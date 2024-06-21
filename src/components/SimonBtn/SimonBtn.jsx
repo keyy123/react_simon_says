@@ -1,6 +1,7 @@
-import styles from "./SimonBtn.module.css"
+import React, {forwardRef} from "react";
+import styles from "./SimonBtn.module.css";
 
-function SimonBtn({color, disabled, onClick}){
+const SimonBtn = forwardRef(({color, disabled, onClick}, ref) => {
     let allowableColors = ["red", "blue", "green", "yellow"];
     let btnClass;
     try {
@@ -25,16 +26,18 @@ function SimonBtn({color, disabled, onClick}){
 
     return (
     <div
-        data-testid={`${color}_simon_button`}
-        className={`${styles[`${btnClass}`]} ${styles.button} `}
+        ref={ref}
         onClick={onClick}
+        className={`${styles[`${btnClass}`]} ${styles.button} `}
+        data-testid={`${color}_simon_button`}
         disabled={disabled}
+        color={color}
     >
       {}
     </div>
     )
 
     
-}
+});
 
 export default SimonBtn;

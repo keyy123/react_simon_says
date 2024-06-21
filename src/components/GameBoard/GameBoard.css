@@ -20,5 +20,8 @@
     border-radius: 100%;
     display: inline-block;
     background-color: black;
+}
 
+.btn_sequence {
+    filter: brightness(2);
 }

@@ -5,7 +5,7 @@
 
 .yellow_simon_button {
     border-top-left-radius: 100%;
-    background-color: yellow;
+    background-color: rgba(216, 216, 0, 0.701);
 
     &:hover {
         background-color: hsl(from yellow 60 100% 81%);
@@ -18,7 +18,7 @@
 
 .blue_simon_button {
     border-bottom-left-radius: 100%;
-    background-color: blue;
+    background-color: rgba(2, 2, 157, 0.892);
     
     &:hover {
         background-color: hsl(from blue 229 100% 59%);
@@ -29,9 +29,13 @@
     }
 }
 
+.btn_sequence {
+    filter: brightness(0.025)
+}
+
 
 .red_simon_button {
-    background-color: red;
+    background-color: rgb(194, 2, 2);
     border-top-right-radius: 100%;
 
     &:hover {
